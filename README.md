@@ -90,9 +90,44 @@ python3 scripts/rag_search.py --root "$WENGE_KB_ROOT" --expand "source_file#chun
 python3 scripts/search_corpus.py --root "$WENGE_KB_ROOT" --any "关键词"
 ```
 
-## 在 Claude Code 中使用
+## 在 VS Code 使用（免费，推荐）
 
-将本仓库克隆到 `~/.agents/skills/wenge-research/` 或 `~/.claude/skills/wenge-research/`，Claude Code 会自动识别。每个命令需要指定 `--root` 参数指向你的知识库。
+这个 Skill 需要搭配 AI 编程工具来用。推荐用 **VS Code**，免费、跨平台（Windows / Mac），装好就能用。
+
+### 1. 装 VS Code
+
+去 [code.visualstudio.com](https://code.visualstudio.com/) 下载安装。
+
+### 2. 装 Continue 插件
+
+打开 VS Code，在左侧扩展商店搜索 **Continue**，点击安装。Continue 是一个开源的 AI 编程助手，支持接入各种 AI 模型。
+
+### 3. 配置 AI 模型
+
+安装后 Continue 会引导你选择模型。可选的方式：
+- 接入 DeepSeek API（免费额度够用）
+- 接入 Claude API（需要付费）
+- 使用 Ollama 本地模型（完全免费但效果弱一些）
+
+### 4. 安装这个 Skill
+
+按 `` Ctrl+` `` 打开 VS Code 终端，粘贴运行：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
+```
+
+或者手动克隆：
+
+```bash
+git clone https://github.com/shuiqiu94-creator/local-knowledge-search.git ~/.claude/skills/wenge-research/
+```
+
+### 5. 开始使用
+
+准备好知识库、建立索引后，在 Continue 对话框中直接提问即可。
+
+> 如果你使用其他工具（Cursor、Windsurf、Claude Code 等），安装步骤类似，就是把命令粘贴到对应工具的终端里运行。
 
 ## 接驳 ChatGPT Plus（免审查方案）
 
