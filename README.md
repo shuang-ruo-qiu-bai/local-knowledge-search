@@ -80,7 +80,21 @@ python3 scripts/rag_search.py --root "$WENGE_KB_ROOT" --expand "source_file#chun
 python3 scripts/search_corpus.py --root "$WENGE_KB_ROOT" --any "关键词"
 ```
 
-## 快速上手
+---
+
+## 如果你已经有 AI 编程工具
+
+打开你的工具（Claude Code、Cursor、Continue 等），在终端或聊天框运行：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
+```
+
+装好之后，准备好知识库、建立索引，就可以直接提问了。
+
+---
+
+## 从零开始：配置 VS Code + Claude Code + DeepSeek
 
 ### 第 1 步：装 VS Code
 
