@@ -36,11 +36,9 @@ skill/
 ├── references/
 │   └── note_schema.md          ← 读书笔记模板
 └── README.md                   ← 本文件
-```
+---
 
-## 快速开始
-
-### 1. 准备知识库
+## 准备知识库
 
 在你的知识库根目录下（默认为 `~/wenge-knowledge-base`）放置书籍文本：
 
@@ -54,31 +52,6 @@ knowledge-base/
 ```
 
 可以通过环境变量 `WENGE_KB_ROOT` 指定其他路径。
-
-### 2. 安装依赖
-
-```bash
-pip install chromadb sentence-transformers rank-bm25
-```
-
-### 3. 建立索引
-
-```bash
-python3 scripts/rag_index.py --root "$WENGE_KB_ROOT"
-```
-
-### 4. 搜索
-
-```bash
-# 混合检索
-python3 scripts/rag_search.py --root "$WENGE_KB_ROOT" --top-k 12 "搜索关键词"
-
-# 展开上下文
-python3 scripts/rag_search.py --root "$WENGE_KB_ROOT" --expand "source_file#chunk_index"
-
-# 关键词回退搜索
-python3 scripts/search_corpus.py --root "$WENGE_KB_ROOT" --any "关键词"
-```
 
 ---
 
@@ -110,13 +83,17 @@ curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-s
 
 **Mac 用户：**
 
-打开"启动台"搜索"终端"并打开，依次运行以下四条命令（把 `你的Key` 换成第 2 步复制的）：
+打开"启动台"搜索"终端"并打开，依次运行以下命令（把 `你的Key` 换成第 2 步复制的）：
 
 ```bash
 echo 'export ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic' >> ~/.zshrc
 echo 'export ANTHROPIC_AUTH_TOKEN=你的Key' >> ~/.zshrc
 echo 'export ANTHROPIC_MODEL=deepseek-v4-pro' >> ~/.zshrc
+echo 'export ANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro' >> ~/.zshrc
+echo 'export ANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro' >> ~/.zshrc
+echo 'export ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash' >> ~/.zshrc
 echo 'export CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash' >> ~/.zshrc
+echo 'export CLAUDE_CODE_EFFORT_LEVEL=max' >> ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -128,7 +105,11 @@ source ~/.zshrc
 $env:ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
 $env:ANTHROPIC_AUTH_TOKEN="你的Key"
 $env:ANTHROPIC_MODEL="deepseek-v4-pro"
+$env:ANTHROPIC_DEFAULT_OPUS_MODEL="deepseek-v4-pro"
+$env:ANTHROPIC_DEFAULT_SONNET_MODEL="deepseek-v4-pro"
+$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek-v4-flash"
 $env:CLAUDE_CODE_SUBAGENT_MODEL="deepseek-v4-flash"
+$env:CLAUDE_CODE_EFFORT_LEVEL="max"
 ```
 
 ### 第 4 步：安装 Claude Code 插件
