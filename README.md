@@ -51,7 +51,7 @@ skill/
 
 ### 如果你已经有 AI 编程工具
 
-打开你的工具（Claude Code、Cursor 等），在终端或聊天框运行：
+打开你的工具（Claude Code、Cursor 等），在终端或聊天窗口运行：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
@@ -114,7 +114,7 @@ $env:CLAUDE_CODE_EFFORT_LEVEL="max"
 
 ### 第 5 步：打开聊天窗口安装 Skill
 
-点左侧的 Claude 图标，在聊天框里输入：
+点左侧的 Claude 图标，在聊天窗口里输入：
 
 ```
 安装 https://github.com/shuiqiu94-creator/local-knowledge-search 这个 Skill
