@@ -56,7 +56,7 @@ skill/
 在终端粘贴下面这行命令，它会把 Skill 装到你的电脑上：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Autumnwhite/local-knowledge-search/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
 ```
 
 装好之后打开聊天窗口，说"调用 local-knowledge-search 这个 Skill"，就可以直接提问了。
@@ -121,7 +121,7 @@ $env:CLAUDE_CODE_EFFORT_LEVEL="max"
 点左侧的 Claude 图标，在聊天窗口里输入：
 
 ```
-安装 https://github.com/Autumnwhite/local-knowledge-search 这个 Skill
+安装 https://github.com/shuiqiu94-creator/local-knowledge-search 这个 Skill
 ```
 
 Claude Code 会自动下载安装，你什么都不用做。
