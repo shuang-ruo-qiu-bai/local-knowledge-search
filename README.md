@@ -88,25 +88,15 @@ python3 scripts/search_corpus.py --root "$WENGE_KB_ROOT" --any "关键词"
 
 **Windows 用户：** 打开 [code.visualstudio.com](https://code.visualstudio.com/)，下载 Windows 版安装包，双击安装（一路点"下一步"就行）。
 
-### 第 2 步：安装 Claude Code 插件
+### 第 2 步：获取 API Key（DeepSeek 的钥匙）
 
-打开 VS Code，按快捷键打开扩展商店：
-- **Mac 用户：** 按 `Cmd+Shift+X`
-- **Windows 用户：** 按 `Ctrl+Shift+X`
+打开 [platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys)，登录后点"创建 API Key"，复制保存。这个 Key 就是 DeepSeek 的"钥匙"，后面配置要用。
 
-在搜索框输入 **Claude Code**，点击绿色的"Install"按钮。安装后左侧会出现一个 Claude 图标，点击它就能打开聊天窗口，像 ChatGPT 一样直接打字提问。
-
-### 第 3 步：获取 API Key
-
-打开 [platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys)，登录后点"创建 API Key"，复制保存。
-
-### 第 4 步：配置 DeepSeek V4
-
-告诉 Claude Code 用 DeepSeek 的地址和你的 Key。
+### 第 3 步：配置环境变量（告诉电脑用 DeepSeek）
 
 **Mac 用户：**
 
-打开终端（在"启动台"搜索"终端"），依次运行以下命令（把 `你的Key` 换成第 3 步复制的）：
+打开"启动台"搜索"终端"并打开，依次运行以下四条命令（把 `你的Key` 换成第 2 步复制的）：
 
 ```bash
 echo 'export ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic' >> ~/.zshrc
@@ -118,7 +108,7 @@ source ~/.zshrc
 
 **Windows 用户：**
 
-搜索"PowerShell"并打开，依次运行以下命令（把 `你的Key` 换成第 3 步复制的）：
+搜索"PowerShell"并打开，依次运行以下命令（把 `你的Key` 换成第 2 步复制的）：
 
 ```powershell
 $env:ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
@@ -127,9 +117,17 @@ $env:ANTHROPIC_MODEL="deepseek-v4-pro"
 $env:CLAUDE_CODE_SUBAGENT_MODEL="deepseek-v4-flash"
 ```
 
-### 第 5 步：在聊天窗口安装 Skill
+### 第 4 步：安装 Claude Code 插件
 
-回到 VS Code，点左侧的 Claude 图标打开聊天窗口，输入：
+打开 VS Code，按快捷键打开扩展商店：
+- **Mac 用户：** 按 `Cmd+Shift+X`
+- **Windows 用户：** 按 `Ctrl+Shift+X`
+
+搜索 **Claude Code**，点绿色的"Install"。安装后左侧会出现一个 Claude 图标。
+
+### 第 5 步：打开聊天窗口安装 Skill
+
+点左侧的 Claude 图标，在聊天框里输入：
 
 ```
 安装 https://github.com/shuiqiu94-creator/local-knowledge-search 这个 Skill
