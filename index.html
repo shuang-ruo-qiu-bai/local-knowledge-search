@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识库检索 — 把你的书变成 AI 助手</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; color: #1a1a2e; background: #f8f9fa; line-height: 1.8; }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+
+        /* header */
+        .hero { text-align: center; padding: 60px 0 40px; }
+        .hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; letter-spacing: 1px; }
+        .hero p { font-size: 18px; color: #666; }
+        .tag { display: inline-block; background: #e8f4fd; color: #1a73e8; padding: 4px 14px; border-radius: 20px; font-size: 13px; margin-top: 16px; }
+
+        /* sections */
+        h2 { font-size: 22px; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #1a73e8; display: inline-block; }
+        p { font-size: 15px; color: #444; margin-bottom: 12px; }
+
+        /* use cases grid */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+        .card { background: #fff; padding: 18px; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .card .icon { font-size: 22px; margin-bottom: 4px; }
+        .card h3 { font-size: 15px; margin-bottom: 4px; }
+        .card p { font-size: 13px; color: #888; margin: 0; }
+
+        /* comparison table */
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #1a73e8; color: #fff; font-weight: 600; }
+        tr:last-child td { border-bottom: none; }
+        .check { color: #34a853; }
+        .cross { color: #ea4335; }
+
+        /* pricing */
+        .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+        .plan { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); text-align: center; }
+        .plan.featured { border: 2px solid #1a73e8; position: relative; }
+        .plan .price { font-size: 32px; font-weight: 700; color: #1a73e8; margin: 8px 0; }
+        .plan .price small { font-size: 14px; color: #888; font-weight: 400; }
+        .plan ul { text-align: left; margin: 12px 0; padding-left: 18px; font-size: 13px; color: #555; }
+        .plan ul li { margin-bottom: 6px; }
+        .badge { background: #ff6b35; color: #fff; font-size: 12px; padding: 2px 10px; border-radius: 10px; position: absolute; top: -10px; right: 16px; }
+
+        /* QR codes */
+        .qr-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 16px 0; text-align: center; }
+        .qr-item img { width: 100%; max-width: 180px; border-radius: 8px; border: 1px solid #ddd; }
+        .qr-item p { font-size: 13px; color: #666; margin-top: 4px; }
+
+        /* CTA */
+        .cta { background: #1a73e8; color: #fff; text-align: center; padding: 32px; border-radius: 12px; margin: 40px 0; }
+        .cta p { color: #fff; font-size: 16px; margin-bottom: 8px; }
+        .cta .btn { display: inline-block; background: #fff; color: #1a73e8; padding: 10px 28px; border-radius: 24px; text-decoration: none; font-weight: 600; margin-top: 8px; }
+
+        .faq { margin: 16px 0; }
+        .faq-item { background: #fff; padding: 16px 20px; border-radius: 12px; margin-bottom: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+        .faq-item h4 { font-size: 14px; margin-bottom: 4px; }
+        .faq-item p { font-size: 13px; color: #666; margin: 0; }
+
+        .footer { text-align: center; padding: 24px 0; font-size: 13px; color: #999; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 26px; }
+            .grid, .pricing { grid-template-columns: 1fr; }
+            .qr-grid { grid-template-columns: 1fr; max-width: 200px; margin: 16px auto; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+        <h1>📚 知识库检索</h1>
+        <p>把你的书变成 AI 助手，直接跟你的书"聊天"</p>
+        <span class="tag">运行在本地 · 只查你的书 · 可溯源</span>
+    </div>
+
+    <!-- Intro -->
+    <h2>它是什么</h2>
+    <p>一套运行在你本地电脑上的知识问答系统。把书、笔记、文献放进文件夹，它就自动读完、记住、建立索引。之后你像跟人聊天一样提问，它像一个读过你所有书的研究助手，跟你讨论。</p>
+    <p>每一段回答都标注了来自哪本书、哪个章节，可以追溯到原文核实。<strong>它不是 ChatGPT、不是豆包——它读的是你自己的书。</strong></p>
+
+    <!-- Use Cases -->
+    <h2>能用在哪些地方</h2>
+    <div class="grid">
+        <div class="card"><div class="icon">🎓</div><h3>考研复习</h3><p>教材丢进去，直接问知识点</p></div>
+        <div class="card"><div class="icon">📚</div><h3>期末冲刺</h3><p>课件、笔记导入，复习效率翻倍</p></div>
+        <div class="card"><div class="icon">📝</div><h3>写论文</h3><p>文献太多读不完？AI 帮你找</p></div>
+        <div class="card"><div class="icon">🏅</div><h3>考公考证</h3><p>法考、CPA、教资随时查</p></div>
+        <div class="card"><div class="icon">🔬</div><h3>学术研究</h3><p>跨书对比，追溯原文</p></div>
+        <div class="card"><div class="icon">📖</div><h3>读书爱好者</h3><p>自己的书库，跟 AI 讨论</p></div>
+    </div>
+
+    <!-- Comparison -->
+    <h2>它跟别的 AI 有什么不同</h2>
+    <table>
+        <tr><th></th><th>ChatGPT / 豆包</th><th>这个工具</th></tr>
+        <tr><td><strong>知识来源</strong></td><td>训练时学到的公开数据</td><td><span class="check">✓</span> 你自己的书和资料</td></tr>
+        <tr><td><strong>可控性</strong></td><td>不知道来源</td><td><span class="check">✓</span> 每句话都有出处</td></tr>
+        <tr><td><strong>隐私</strong></td><td>数据上传服务器</td><td><span class="check">✓</span> 全部在本地不上传</td></tr>
+        <tr><td><strong>精准度</strong></td><td>可能瞎编</td><td><span class="check">✓</span> 基于你的材料可核实</td></tr>
+    </table>
+
+    <!-- Pricing -->
+    <h2>服务与价格</h2>
+    <p>如果你不想自己折腾，我帮你全部搞定。把你的书发给我，装好之后你直接在用豆包/扣子上提问就行。</p>
+    <div class="pricing">
+        <div class="plan">
+            <h3>🚀 基础服务</h3>
+            <div class="price">99 <small>元 / 一次</small></div>
+            <ul>
+                <li>把你的书接上豆包或扣子</li>
+                <li>直接在电脑上提问</li>
+                <li>Mac / Windows 均可</li>
+                <li>可选：附赠装好 Claude Code</li>
+            </ul>
+        </div>
+        <div class="plan featured">
+            <span class="badge">推荐</span>
+            <h3>⭐ VIP</h3>
+            <div class="price">199 <small>元 / 年</small></div>
+            <ul>
+                <li>包含基础服务全部内容</li>
+                <li>加微信，随时问</li>
+                <li>定制专题知识库</li>
+                <li>加书更新、代找资料</li>
+            </ul>
+        </div>
+    </div>
+    <p style="font-size:13px;color:#999;text-align:center;">* 目前需要电脑开机才能用。手机端规划中，老用户有优惠。</p>
+
+    <!-- System Requirements -->
+    <h2>系统要求</h2>
+    <p>Windows / Mac / Linux 均可，8GB 内存以上（推荐 16GB），不需要独立显卡。</p>
+
+    <!-- FAQ -->
+    <h2>常见问题</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h4>❓ 我完全不懂技术，能弄吗？</h4>
+            <p>完全可以。你把书发给我，我全部搞定，你只管在豆包上提问就行。</p>
+        </div>
+        <div class="faq-item">
+            <h4>❓ PDF 格式的书可以吗？</h4>
+            <p>可以。PDF、txt、epub 都行，发给我就行。</p>
+        </div>
+        <div class="faq-item">
+            <h4>❓ 是不是要一直开着电脑？</h4>
+            <p>对，需要电脑开机才能用。手机端正在规划中。</p>
+        </div>
+        <div class="faq-item">
+            <h4>❓ 跟用 ChatGPT 有什么区别？</h4>
+            <p>ChatGPT 回答的是它训练时学的知识。这个工具回答的是你的书里的内容，每一句都有出处。</p>
+        </div>
+    </div>
+
+    <!-- QR Codes -->
+    <h2>联系方式</h2>
+    <p style="text-align:center">加我微信，聊聊你的需求，再决定选哪个方案。</p>
+    <div class="qr-grid">
+        <div class="qr-item">
+            <img src="qrcode-wechat.jpg" alt="加我微信">
+            <p>加我微信</p>
+        </div>
+        <div class="qr-item">
+            <img src="qrcode-wechat-pay.jpg" alt="微信付款">
+            <p>微信付款</p>
+        </div>
+        <div class="qr-item">
+            <img src="qrcode-alipay.jpg" alt="支付宝付款">
+            <p>支付宝付款</p>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <p>把你的书变成 AI 助手</p>
+        <a class="btn" href="https://github.com/shuang-ruo-qiu-bai/local-knowledge-search" target="_blank">GitHub 项目地址 →</a>
+    </div>
+
+    <div class="footer">
+        <p>知识库检索 · 本地知识问答系统</p>
+    </div>
+
+</div>
+</body>
+</html>
