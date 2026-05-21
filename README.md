@@ -18,7 +18,7 @@
 ## 一键安装
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/book-chat/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
 ```
 
 命令会克隆仓库到 `~/.claude/skills/wenge-research/`（或 `~/.agents/skills/`），并安装 Python 依赖。
