@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="https://github.com/shuiqiu94-creator/cultural-revolution-research.git"
+REPO_URL="https://github.com/shuiqiu94-creator/book-chat.git"
 
 # Detect target directory
 if [ -d "$HOME/.claude/skills" ]; then
