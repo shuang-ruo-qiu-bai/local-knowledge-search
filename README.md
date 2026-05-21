@@ -75,7 +75,7 @@ python3 scripts/search_corpus.py --root "$WENGE_KB_ROOT" --any "关键词"
 本 skill 的 RAG 索引可通过本地 API 桥接至 ChatGPT Plus 的 Custom GPT，从而：
 
 - **用 GPT 的输出质量 + 你的本地书库数据**
-- **避免模型的审查过滤**（GPT Plus 对中国敏感内容的限制远弱于 Claude/DeepSeek 等模型）
+- **避免某些模型的审查过滤**（仅在你使用的模型有审查限制时需要此方案。例如：Claude Code 接入 DeepSeek V4 等中国本地模型时会遇到审查过滤；ChatGPT Plus 本身对中国敏感内容几乎没有任何限制，不需要此桥接方案也能自由讨论）
 
 ### 架构
 
@@ -104,6 +104,7 @@ Chroma 向量索引（你的书库）
 - GPT Plus 模型对中国文革相关内容几乎没有过滤拦截，可以自由输出
 - 你的书库数据在你本地，不需要上传给任何第三方
 - 学术呈现协议（SKILL.md 中的十二条）保证了输出质量
+- **注意**：此桥接方案仅在 Claude Code 接入有审查限制的模型（如 DeepSeek V4）时需要。如果你使用的是没有审查限制的模型（如直接使用 ChatGPT Plus、或 Claude Code 接入 Claude 模型），则不需要此桥接方案
 
 ## License
 
