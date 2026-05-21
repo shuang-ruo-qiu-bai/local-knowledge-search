@@ -45,6 +45,20 @@ skill/
 
 ---
 
+## 如果你已经有 AI 编程工具
+
+在终端粘贴下面这行命令，它会自动下载安装：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/shuang-ruo-qiu-bai/local-knowledge-search/main/install.sh | bash
+```
+
+装好之后打开聊天窗口，说"调用 local-knowledge-search 这个 Skill"，就可以直接提问了。
+
+> 或者，把这个仓库文件夹设为 VS Code 的工作区，打开 Claude Code 聊天窗口输入"安装这个 Skill"，它会自动完成安装。
+
+---
+
 ## 接驳 ChatGPT Plus（免审查方案）
 
 本 skill 的 RAG 索引可通过本地 API 桥接至 ChatGPT Plus 的 Custom GPT，从而：
@@ -105,13 +119,10 @@ Chroma 向量索引（你的书库）
 把你的本地知识库接到**扣子或豆包**，之后你直接在智能体上提问，就像用 AI 助手一样查你的书。
 
 **⭐ VIP — 199 元/年**
-包含基础服务，再加：
+- 把你的本地知识库接到**扣子或豆包**，直接在上面提问
 - 加我微信，使用中遇到问题随时问
-- 智能体维护、加书更新
-
-**💎 VIP 高级 — 299 元/年**
-包含 VIP 全部，再加：
 - 帮你定制专题知识库（考研、考公、考证、学术任选）
+- 智能体维护、加书更新
 - 代找资料、整理文献
 
 **适用人群：** 考研党、考证党、做研究、需要 AI 辅助读资料的 anyone
