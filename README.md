@@ -104,27 +104,26 @@ python3 scripts/search_corpus.py --root "$WENGE_KB_ROOT" --any "关键词"
 
 ### 3. 配置 DeepSeek V4
 
-Claude Code 默认使用 Anthropic 的模型。如果你要用 DeepSeek V4，需要配置环境变量：
+Claude Code 默认用 Anthropic 的模型。要换成 DeepSeek V4，需要告诉它 DeepSeek 的地址和你的 Key。
 
-**Mac / Linux：**
+**第一步：获取 API Key**
+
+打开 [platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys)，登录后创建一个 Key，复制保存。
+
+**第二步：把配置写入配置文件**
+
+Mac / Linux 打开终端，依次运行以下命令（把 `你的Key` 换成上面复制的）：
+
 ```bash
-export ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic
-export ANTHROPIC_AUTH_TOKEN=你的DeepSeek API Key
-export ANTHROPIC_MODEL=deepseek-v4-pro
-export CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash
+echo 'export ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic' >> ~/.zshrc
+echo 'export ANTHROPIC_AUTH_TOKEN=你的Key' >> ~/.zshrc
+echo 'export ANTHROPIC_MODEL=deepseek-v4-pro' >> ~/.zshrc
+echo 'export CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash' >> ~/.zshrc
 ```
 
-**Windows（PowerShell）：**
-```powershell
-$env:ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
-$env:ANTHROPIC_AUTH_TOKEN="你的DeepSeek API Key"
-$env:ANTHROPIC_MODEL="deepseek-v4-pro"
-$env:CLAUDE_CODE_SUBAGENT_MODEL="deepseek-v4-flash"
-```
+然后运行 `source ~/.zshrc` 让配置生效。
 
-API Key 在 [platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys) 获取。
-
-> 建议把这些环境变量写入 `~/.bashrc` 或 `~/.zshrc`，这样不用每次打开终端都重新设置。
+> Windows 用户：打开 PowerShell，把上面命令中的 `export A=B` 改成 `$env:A="B"`，写入 `$PROFILE` 文件即可。
 
 ### 4. 安装 Skill
 
