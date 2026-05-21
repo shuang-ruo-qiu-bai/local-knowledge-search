@@ -128,15 +128,15 @@ API Key 在 [platform.deepseek.com/api_keys](https://platform.deepseek.com/api_k
 
 ### 4. 安装 Skill
 
-在 VS Code 里按 `` Ctrl+` `` 打开终端，粘贴运行：
+在 Claude Code 聊天窗口直接输入：
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
-```
+> 安装 https://github.com/shuiqiu94-creator/local-knowledge-search 这个 Skill
+
+Claude Code 会自动执行安装命令，不需要手动操作终端。
 
 ### 5. 开始使用
 
-准备好知识库、建立索引后，在 Claude Code 聊天面板中直接提问即可。
+准备好知识库、建立索引后，在聊天窗口直接提问即可。
 
 ## 接驳 ChatGPT Plus（免审查方案）
 
