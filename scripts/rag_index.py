@@ -232,7 +232,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Index 文革 knowledge base into Chroma")
     parser.add_argument("--root", type=Path,
                         default=Path(os.environ.get("WENGE_KB_ROOT",
-                                    str(Path.home() / "wenge-knowledge-base"))))
+                                    str(Path.home() / "knowledge-base"))))
     parser.add_argument("--rebuild", action="store_true", help="Delete existing index and rebuild")
     args = parser.parse_args()
 

@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 
 
-DEFAULT_ROOT = Path(os.environ.get("WENGE_KB_ROOT", str(Path.home() / "wenge-knowledge-base")))
+DEFAULT_ROOT = Path(os.environ.get("WENGE_KB_ROOT", str(Path.home() / "knowledge-base")))
 SEARCH_DIRS = (
     Path("raw") / "文革",
     Path("books") / "文革",

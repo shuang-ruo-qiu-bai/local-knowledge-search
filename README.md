@@ -32,14 +32,18 @@ skill/
 
 ## 准备知识库
 
-在 `~/wenge-knowledge-base` 目录下建好文件夹，把材料拖进去就行：
+在 `~/knowledge-base` 目录下建好文件夹，把你的材料拖进去：
 
-- `books/你的专题/` — 放书籍文本（如 `books/文革/`、`books/古代史/`）
-- `raw/你的专题/` — 放 OCR 提取的原始文本
-- `notes/` — 放读书笔记
-- `topics/` — 放专题文件
+- `books/你的专题/` — 书籍文本（如 `books/历史/`、`books/哲学/`）
+- `raw/你的专题/` — OCR 提取的原始文本
+- `notes/` — 读书笔记
+- `topics/` — 专题文件
 
-可以通过环境变量 `WENGE_KB_ROOT` 指定其他路径。
+> 如果你的知识库在其他位置，可以设置环境变量 `WENGE_KB_ROOT` 指向它。例如知识库在 `D:\我的书`，就在终端运行：
+> ```bash
+> export WENGE_KB_ROOT=/Users/你的用户名/我的书   # Mac
+> $env:WENGE_KB_ROOT="D:\我的书"                     # Windows
+> ```
 
 ---
 

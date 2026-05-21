@@ -268,7 +268,7 @@ def main() -> None:
     parser.add_argument("query", nargs="?", help="Search query")
     parser.add_argument("--root", type=Path,
                         default=Path(os.environ.get("WENGE_KB_ROOT",
-                                    str(Path.home() / "wenge-knowledge-base"))))
+                                    str(Path.home() / "knowledge-base"))))
     parser.add_argument("--top-k", type=int, default=12, help="Number of results (default: 12)")
     parser.add_argument("--expand", metavar="CHUNK_ID", help="Expand context around a chunk")
     parser.add_argument("--rag-status", action="store_true", help="Show index status")

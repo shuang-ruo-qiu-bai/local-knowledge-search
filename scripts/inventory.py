@@ -11,7 +11,7 @@ from collections import defaultdict
 from pathlib import Path
 
 
-DEFAULT_ROOT = Path(os.environ.get("WENGE_KB_ROOT", str(Path.home() / "wenge-knowledge-base")))
+DEFAULT_ROOT = Path(os.environ.get("WENGE_KB_ROOT", str(Path.home() / "knowledge-base")))
 BOOK_EXTS = {".pdf", ".epub"}
 TEXT_EXTS = {".txt", ".md", ".json"}
 
