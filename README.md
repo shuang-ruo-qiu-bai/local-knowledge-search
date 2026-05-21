@@ -53,13 +53,13 @@ skill/
 
 ### 如果你已经有 AI 编程工具
 
-直接把下面这行命令**粘贴到终端**运行，会自动下载安装：
+在终端粘贴下面这行命令，它会把 Skill 装到你的电脑上：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Autumnwhite/local-knowledge-search/main/install.sh | bash
 ```
 
-装好之后，打开你的 AI 工具（Claude Code、Cursor 等）的**聊天窗口**，就可以直接提问了。
+装好之后打开聊天窗口，说"调用 local-knowledge-search 这个 Skill"，就可以直接提问了。
 
 > 或者，你也可以把这个仓库文件夹设为 VS Code 的工作区，打开 Claude Code 聊天窗口输入"安装这个 Skill"，它会自动完成安装。
 
