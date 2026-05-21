@@ -138,9 +138,9 @@ Chroma 向量索引（你的书库）
 **加我微信，聊聊你的需求，再决定选哪个方案。**
 
 <!-- 付款码 -->
-| 基础服务 99元 | VIP 199元/年 | 打赏 |
-|:---:|:---:|:---:|
-| ![基础](qrcode-basic.jpg) | ![VIP](qrcode-vip.jpg) | ![打赏](qrcode-donate.jpg) |
+| 微信 | 支付宝 |
+|:---:|:---:|
+| ![微信](qrcode-wechat.jpg) | ![支付宝](qrcode-alipay.jpg) |
 
 ## License
 
