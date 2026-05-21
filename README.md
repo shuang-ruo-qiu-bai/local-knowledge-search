@@ -92,99 +92,51 @@ python3 scripts/search_corpus.py --root "$WENGE_KB_ROOT" --any "关键词"
 
 ## 快速上手
 
-这个 Skill 需要搭配 AI 编程工具来使用。以下介绍几种方式。
+### 1. 装 VS Code（免费，支持 Windows / Mac）
 
-### 方式一：VS Code + Continue 插件（免费，推荐新手）
+去 [code.visualstudio.com](https://code.visualstudio.com/) 下载安装。
 
-1. 安装 [VS Code](https://code.visualstudio.com/)（支持 Windows / Mac）
-2. 打开 VS Code，在扩展商店搜索 **Continue** 并安装
-3. 安装后 Continue 会引导你选择 AI 模型（可接入 DeepSeek API，有免费额度）
-4. 按 `` Ctrl+` `` 打开终端，安装这个 Skill：
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
-   ```
-5. 准备好知识库、建立索引后，在 Continue 对话框中直接提问
+### 2. 安装 Claude Code 插件
 
-### 方式二：VS Code 终端 + Claude Code 接入 DeepSeek V4
+打开 VS Code，按 `Cmd+Shift+X`（Mac）或 `Ctrl+Shift+X`（Windows），搜索 **Claude Code**，点击安装。
 
-如果你希望用 DeepSeek V4 驱动 Claude Code，可以在 VS Code 的终端里操作，不用切换窗口。按以下步骤（来自 [DeepSeek 官方文档](https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code)）：
+安装后在左侧会出现 Claude Code 图标，点击即可打开聊天面板，像 ChatGPT 一样直接提问。
 
-先打开 VS Code，按 `` Ctrl+` `` 打开终端，后续所有命令都在这个终端里运行。
+### 3. 配置 DeepSeek V4
 
-**1. 获取 API Key**
+Claude Code 默认使用 Anthropic 的模型。如果你要用 DeepSeek V4，需要配置环境变量：
 
-打开 [platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys)，登录后创建一个 API Key，复制保存。
-
-**2. 安装 Claude Code**
-
-需要 Node.js 18+，然后在终端运行：
-
-```bash
-npm install -g @anthropic-ai/claude-code
-```
-
-**3. 配置环境变量**
-
-Mac / Linux：
+**Mac / Linux：**
 ```bash
 export ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic
 export ANTHROPIC_AUTH_TOKEN=你的DeepSeek API Key
 export ANTHROPIC_MODEL=deepseek-v4-pro
-export ANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro
-export ANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro
-export ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash
 export CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash
-export CLAUDE_CODE_EFFORT_LEVEL=max
 ```
-
-Windows（PowerShell）：
-```powershell
-$env:ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
-$env:ANTHROPIC_AUTH_TOKEN="你的DeepSeek API Key"
-$env:ANTHROPIC_MODEL="deepseek-v4-pro"
-$env:ANTHROPIC_DEFAULT_OPUS_MODEL="deepseek-v4-pro"
-$env:ANTHROPIC_DEFAULT_SONNET_MODEL="deepseek-v4-pro"
-$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek-v4-flash"
-$env:CLAUDE_CODE_SUBAGENT_MODEL="deepseek-v4-flash"
-$env:CLAUDE_CODE_EFFORT_LEVEL="max"
-```
-
-**4. 安装 Skill**
-
-在你的项目目录下运行 `claude`，然后在 Claude Code 终端中粘贴一键安装命令：
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
-```
-
-> 每次打开 Claude Code 都需要先设置环境变量，建议将环境变量写入 `~/.bashrc` 或 `~/.zshrc` 自动加载。
 
 **Windows（PowerShell）：**
 ```powershell
 $env:ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
 $env:ANTHROPIC_AUTH_TOKEN="你的DeepSeek API Key"
 $env:ANTHROPIC_MODEL="deepseek-v4-pro"
-$env:ANTHROPIC_DEFAULT_OPUS_MODEL="deepseek-v4-pro"
-$env:ANTHROPIC_DEFAULT_SONNET_MODEL="deepseek-v4-pro"
-$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek-v4-flash"
 $env:CLAUDE_CODE_SUBAGENT_MODEL="deepseek-v4-flash"
-$env:CLAUDE_CODE_EFFORT_LEVEL="max"
 ```
+
+API Key 在 [platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys) 获取。
+
+> 建议把这些环境变量写入 `~/.bashrc` 或 `~/.zshrc`，这样不用每次打开终端都重新设置。
 
 ### 4. 安装 Skill
 
-在你的项目目录下运行 Claude Code：
-
-```bash
-cd 你的项目目录
-claude
-```
-
-然后在 Claude Code 的终端中粘贴一键安装命令：
+在 VS Code 里按 `` Ctrl+` `` 打开终端，粘贴运行：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
 ```
+
+### 5. 开始使用
+
+准备好知识库、建立索引后，在 Claude Code 聊天面板中直接提问即可。
 
 ## 接驳 ChatGPT Plus（免审查方案）
 
