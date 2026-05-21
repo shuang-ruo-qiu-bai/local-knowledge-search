@@ -43,7 +43,9 @@ skill/
 
 ---
 
-## 如果你已经有 AI 编程工具
+## 安装方法
+
+### 如果你已经有 AI 编程工具
 
 打开你的工具（Claude Code、Cursor、Continue 等），在终端或聊天框运行：
 
@@ -53,9 +55,7 @@ curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-s
 
 装好之后，准备好知识库、建立索引，就可以直接提问了。
 
----
-
-## 从零开始：配置 VS Code + Claude Code + DeepSeek
+### 从零开始：配置 VS Code + Claude Code + DeepSeek
 
 ### 第 1 步：装 VS Code
 
