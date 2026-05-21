@@ -1,21 +1,21 @@
 ---
-name: wenge-research
-description: Research the Cultural Revolution (文革) via full-stack RAG (Chroma + hybrid search). Dynamic corpus discovery, layered evidence retrieval, multi-source cross-verification, and source-traceable output. Falls back to keyword search when RAG is unavailable.
+name: local-knowledge-search
+description: Local knowledge base Q&A via full-stack RAG (Chroma + hybrid search). Dynamic corpus discovery, layered evidence retrieval, multi-source cross-verification, and source-traceable output. Falls back to keyword search when RAG is unavailable.
 ---
 
-# 文革研究
+# 本地知识库检索
 
-This skill turns the local 文革 knowledge base into a RAG-powered research workflow. It does NOT rely on a fixed bibliography — new books added under `books/文革/` are dynamically ingested.
+This skill turns a local knowledge base into a RAG-powered research workflow. It dynamically discovers and indexes books under `books/`, text files under `raw/`, notes, and topic files.
 
 ## Corpus Root
 
 ```
-$WENGE_KB_ROOT  (default: ~/wenge-knowledge-base)
+$KB_ROOT  (default: ~/knowledge-base)
 ```
 
 Expected structure:
-- `books/文革/` — source books and extracted text; grows over time
-- `raw/文革/` — extracted/cleaned text from PDFs
+- `books/` — source books and extracted text; grows over time
+- `raw/` — extracted/cleaned text from PDFs
 - `notes/` — JSON or Markdown reading notes
 - `topics/` — topic files created during research
 - `.chroma/` — RAG vector index and tracking database
@@ -26,13 +26,13 @@ Expected structure:
 Before any research, check whether the RAG index is built:
 
 ```bash
-python3 scripts/rag_search.py --root "$WENGE_KB_ROOT" --rag-status
+python3 scripts/rag_search.py --root "$KB_ROOT" --rag-status
 ```
 
 If the index does not exist or is stale, rebuild:
 
 ```bash
-python3 scripts/rag_index.py --root "$WENGE_KB_ROOT"
+python3 scripts/rag_index.py --root "$KB_ROOT"
 ```
 
 Prefer already extracted `*-cleaned.txt` text. When both `foo.txt` and `foo-cleaned.txt` exist in the same directory, the indexer skips the raw `foo.txt` and indexes only the cleaned version. The RAG pipeline handles TXT, MD, and JSON files. PDF/EPUB must be extracted to txt first (use tools in the knowledge base if available).
@@ -51,7 +51,7 @@ The embedding model is loaded from the local Hugging Face cache (`local_files_on
 
 ```bash
 python3 scripts/rag_search.py \
-  --root "$WENGE_KB_ROOT" \
+  --root "$KB_ROOT" \
   --top-k 12 \
   --json \
   "王洪文 国棉十七厂 工总司 发迹"
@@ -65,7 +65,7 @@ For the most relevant results, read surrounding context to avoid decontextualiza
 
 ```bash
 python3 scripts/rag_search.py \
-  --root "$WENGE_KB_ROOT" \
+  --root "$KB_ROOT" \
   --expand "source_file#chunk_index"
 ```
 
@@ -75,7 +75,7 @@ For contested facts, re-search with alternative phrasing to surface divergent ac
 
 ```bash
 python3 scripts/rag_search.py \
-  --root "$WENGE_KB_ROOT" \
+  --root "$KB_ROOT" \
   --top-k 8 \
   --json \
   "alternative keywords for the same event"
@@ -91,7 +91,7 @@ If RAG index is not built or the search returns empty:
 
 ```bash
 python3 scripts/search_corpus.py \
-  --root "$WENGE_KB_ROOT" \
+  --root "$KB_ROOT" \
   --any "关键词"
 ```
 
@@ -113,7 +113,7 @@ For disputed topics, compare at least two source types: 通史, 港版《中华�
 
 ## Adding New Books
 
-When a new file appears under `books/文革/`:
+When a new file appears under `books/`:
 
 ### 如果已经是 txt / md 格式
 
@@ -132,7 +132,7 @@ brew install tesseract
 pip install pytesseract pdf2image Pillow
 
 # 执行 OCR
-python3 tools/pdf2txt.py books/文革/xxx.pdf
+python3 tools/pdf2txt.py books/xxx.pdf
 ```
 
 **场景二：PaddleOCR**
@@ -143,7 +143,7 @@ python3 tools/pdf2txt.py books/文革/xxx.pdf
 pip install paddlepaddle paddleocr
 
 # 执行 OCR（繁体用 --lang chinese_cht）
-python3 tools/pdf2txt.py --paddle --lang chinese_cht books/文革/xxx.pdf
+python3 tools/pdf2txt.py --paddle --lang chinese_cht books/xxx.pdf
 ```
 
 OCR 完成后会在同目录生成 `xxx-cleaned.txt`，然后运行增量索引即可。
@@ -151,7 +151,7 @@ OCR 完成后会在同目录生成 `xxx-cleaned.txt`，然后运行增量索引�
 ### 如果是 epub
 
 ```bash
-python3 tools/epub2txt.py books/文革/xxx.epub
+python3 tools/epub2txt.py books/xxx.epub
 ```
 
 ### 增量索引
@@ -329,7 +329,7 @@ For book notes, follow `references/note_schema.md`.
 **每完成一次完整答案，必须将问答内容全文保存到 `notes/` 目录下的 MD 文件中。文件必须包含完整答案，不可只存摘要。**
 
 具体规则：
-1. **文件位置**：`notes/` 目录（位于知识库根目录 `$WENGE_KB_ROOT/notes/`）
+1. **文件位置**：`notes/` 目录（位于知识库根目录 `$KB_ROOT/notes/`）
 2. **文件命名**：中文命名，按话题命名，如 `安亭事件.md`、`王洪文生平.md`、`720事件.md`。多个相关的短问题合并到一个文件中
 3. **文件内容**：**完整答案原文**（不是摘要，不是精简版），包含：
    - 用户提出的问题

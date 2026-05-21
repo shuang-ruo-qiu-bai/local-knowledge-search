@@ -26,7 +26,7 @@ from pathlib import Path
 from typing import Any
 
 CHROMA_DIR_NAME = ".chroma"
-EMBED_MODEL = os.environ.get("WENGE_EMBED_MODEL", "shibing624/text2vec-base-chinese")
+EMBED_MODEL = os.environ.get("KB_EMBED_MODEL", "shibing624/text2vec-base-chinese")
 
 # ---------------------------------------------------------------------------
 # sources
@@ -264,10 +264,10 @@ def print_json_results(results: list[dict[str, Any]], top_k: int):
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Hybrid RAG search for 文革 knowledge base")
+    parser = argparse.ArgumentParser(description="Hybrid RAG search for knowledge base")
     parser.add_argument("query", nargs="?", help="Search query")
     parser.add_argument("--root", type=Path,
-                        default=Path(os.environ.get("WENGE_KB_ROOT",
+                        default=Path(os.environ.get("KB_ROOT",
                                     str(Path.home() / "knowledge-base"))))
     parser.add_argument("--top-k", type=int, default=12, help="Number of results (default: 12)")
     parser.add_argument("--expand", metavar="CHUNK_ID", help="Expand context around a chunk")
@@ -287,9 +287,9 @@ def main() -> None:
     import chromadb  # noqa: auto-import
     client = chromadb.PersistentClient(path=str(chroma_path))
     try:
-        coll = client.get_collection("wenge")
+        coll = client.get_collection("kb")
     except Exception:
-        print("ERROR: Collection 'wenge' not found. Run 'python3 scripts/rag_index.py' first.", file=sys.stderr)
+        print("ERROR: Collection 'kb' not found. Run 'python3 scripts/rag_index.py' first.", file=sys.stderr)
         sys.exit(1)
 
     # status mode

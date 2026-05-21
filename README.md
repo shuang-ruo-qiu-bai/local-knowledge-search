@@ -41,10 +41,10 @@ skill/
 - `notes/` — 读书笔记
 - `topics/` — 专题文件
 
-> 如果你的知识库在其他位置，可以设置环境变量 `WENGE_KB_ROOT` 指向它。例如知识库在 `D:\我的书`，就在终端运行：
+> 如果你的知识库在其他位置，可以设置环境变量 `KB_ROOT` 指向它。例如知识库在 `D:\我的书`，就在终端运行：
 > ```bash
-> export WENGE_KB_ROOT=/Users/你的用户名/我的书   # Mac
-> $env:WENGE_KB_ROOT="D:\我的书"                     # Windows
+> export KB_ROOT=/Users/你的用户名/我的书   # Mac
+> $env:KB_ROOT="D:\我的书"                     # Windows
 > ```
 
 ---
@@ -53,13 +53,15 @@ skill/
 
 ### 如果你已经有 AI 编程工具
 
-打开你的工具（Claude Code、Cursor 等），在终端或聊天窗口运行：
+直接把下面这行命令**粘贴到终端**运行，会自动下载安装：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Autumnwhite/local-knowledge-search/main/install.sh | bash
 ```
 
-装好之后，准备好知识库、建立索引，就可以直接提问了。
+装好之后，打开你的 AI 工具（Claude Code、Cursor 等）的**聊天窗口**，就可以直接提问了。
+
+> 或者，你也可以把这个仓库文件夹设为 VS Code 的工作区，打开 Claude Code 聊天窗口输入"安装这个 Skill"，它会自动完成安装。
 
 ### 从零开始：配置 VS Code + Claude Code + DeepSeek
 
@@ -119,7 +121,7 @@ $env:CLAUDE_CODE_EFFORT_LEVEL="max"
 点左侧的 Claude 图标，在聊天窗口里输入：
 
 ```
-安装 https://github.com/shuiqiu94-creator/local-knowledge-search 这个 Skill
+安装 https://github.com/Autumnwhite/local-knowledge-search 这个 Skill
 ```
 
 Claude Code 会自动下载安装，你什么都不用做。
@@ -159,7 +161,7 @@ Chroma 向量索引（你的书库）
 ### 为什么这个方案有效
 
 - ChatGPT Plus 的 Custom GPT 可以调用外部 API，包括你的本地 RAG 服务
-- GPT Plus 模型对中国文革相关内容几乎没有过滤拦截，可以自由输出
+- GPT Plus 模型对中国敏感内容几乎没有过滤拦截，可以自由输出
 - 你的书库数据在你本地，不需要上传给任何第三方
 - 学术呈现协议（SKILL.md 中的十二条）保证了输出质量
 - **注意**：此桥接方案仅在 Claude Code 接入有审查限制的模型（如 DeepSeek V4）时需要。如果你使用的是没有审查限制的模型（如直接使用 ChatGPT Plus、或 Claude Code 接入 Claude 模型），则不需要此桥接方案

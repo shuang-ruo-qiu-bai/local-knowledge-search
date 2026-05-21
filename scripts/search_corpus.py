@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Search the dynamic Cultural Revolution corpus with context snippets."""
+"""Search the local knowledge base corpus with context snippets."""
 
 from __future__ import annotations
 
@@ -8,10 +8,10 @@ import os
 from pathlib import Path
 
 
-DEFAULT_ROOT = Path(os.environ.get("WENGE_KB_ROOT", str(Path.home() / "knowledge-base")))
+DEFAULT_ROOT = Path(os.environ.get("KB_ROOT", str(Path.home() / "knowledge-base")))
 SEARCH_DIRS = (
-    Path("raw") / "文革",
-    Path("books") / "文革",
+    Path("raw"),
+    Path("books"),
     Path("notes"),
     Path("topics"),
     Path("index"),

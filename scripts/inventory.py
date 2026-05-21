@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dynamically inventory the local Cultural Revolution research corpus."""
+"""Dynamically inventory the local knowledge base corpus."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from collections import defaultdict
 from pathlib import Path
 
 
-DEFAULT_ROOT = Path(os.environ.get("WENGE_KB_ROOT", str(Path.home() / "knowledge-base")))
+DEFAULT_ROOT = Path(os.environ.get("KB_ROOT", str(Path.home() / "knowledge-base")))
 BOOK_EXTS = {".pdf", ".epub"}
 TEXT_EXTS = {".txt", ".md", ".json"}
 
@@ -25,8 +25,8 @@ def norm_stem(path: Path) -> str:
 
 
 def scan(root: Path) -> dict:
-    books_dir = root / "books" / "文革"
-    raw_dir = root / "raw" / "文革"
+    books_dir = root / "books"
+    raw_dir = root / "raw"
     notes_dir = root / "notes"
     topics_dir = root / "topics"
     index_dir = root / "index"
@@ -94,7 +94,7 @@ def scan(root: Path) -> dict:
 
 
 def print_markdown(data: dict) -> None:
-    print(f"# 文革资料库盘点\n\nRoot: `{data['root']}`\n")
+    print(f"# 知识库盘点\n\nRoot: `{data['root']}`\n")
     counts = data["counts"]
     print(
         f"- books: {counts['books']}\n"

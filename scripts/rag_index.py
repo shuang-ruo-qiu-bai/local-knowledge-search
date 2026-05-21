@@ -29,8 +29,8 @@ MIN_CHUNK = 60
 
 # directories to index
 INDEX_DIRS = (
-    Path("raw") / "文革",
-    Path("books") / "文革",
+    Path("raw"),
+    Path("books"),
     Path("notes"),
     Path("topics"),
     Path("index"),
@@ -110,7 +110,7 @@ def chunk_text(text: str, source: str, chunk_size: int = CHUNK_SIZE,
 # embedding + chroma
 # ---------------------------------------------------------------------------
 
-EMBED_MODEL = os.environ.get("WENGE_EMBED_MODEL", "shibing624/text2vec-base-chinese")
+EMBED_MODEL = os.environ.get("KB_EMBED_MODEL", "shibing624/text2vec-base-chinese")
 CHROMA_DIR = None  # set after root known
 
 
@@ -229,9 +229,9 @@ def delete_source_chunks(collection: Any, sources: list[str]) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Index 文革 knowledge base into Chroma")
+    parser = argparse.ArgumentParser(description="Index knowledge base into Chroma")
     parser.add_argument("--root", type=Path,
-                        default=Path(os.environ.get("WENGE_KB_ROOT",
+                        default=Path(os.environ.get("KB_ROOT",
                                     str(Path.home() / "knowledge-base"))))
     parser.add_argument("--rebuild", action="store_true", help="Delete existing index and rebuild")
     args = parser.parse_args()
@@ -243,7 +243,7 @@ def main() -> None:
     import chromadb  # noqa: auto-import
     client = chromadb.PersistentClient(path=str(chroma_path))
 
-    coll_name = "wenge"
+    coll_name = "kb"
     try:
         if args.rebuild:
             client.delete_collection(coll_name)
