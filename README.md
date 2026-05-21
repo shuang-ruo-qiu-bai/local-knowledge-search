@@ -105,9 +105,11 @@ python3 scripts/search_corpus.py --root "$WENGE_KB_ROOT" --any "关键词"
    ```
 5. 准备好知识库、建立索引后，在 Continue 对话框中直接提问
 
-### 方式二：用 Claude Code 接入 DeepSeek V4
+### 方式二：VS Code 终端 + Claude Code 接入 DeepSeek V4
 
-如果你希望用 DeepSeek V4 驱动 Claude Code，按以下步骤操作（来自 [DeepSeek 官方文档](https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code)）：
+如果你希望用 DeepSeek V4 驱动 Claude Code，可以在 VS Code 的终端里操作，不用切换窗口。按以下步骤（来自 [DeepSeek 官方文档](https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code)）：
+
+先打开 VS Code，按 `` Ctrl+` `` 打开终端，后续所有命令都在这个终端里运行。
 
 **1. 获取 API Key**
 
