@@ -34,8 +34,8 @@ skill/
 
 在 `~/wenge-knowledge-base` 目录下建好文件夹，把材料拖进去就行：
 
-- `books/文革/` — 放书籍文本（txt / md 格式）
-- `raw/文革/` — 放 OCR 提取的原始文本
+- `books/你的专题/` — 放书籍文本（如 `books/文革/`、`books/古代史/`）
+- `raw/你的专题/` — 放 OCR 提取的原始文本
 - `notes/` — 放读书笔记
 - `topics/` — 放专题文件
 
