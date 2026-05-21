@@ -138,9 +138,9 @@ Chroma 向量索引（你的书库）
 **加我微信，聊聊你的需求，再决定选哪个方案。**
 
 <!-- 付款码 -->
-| 微信 | 支付宝 |
-|:---:|:---:|
-| ![微信](qrcode-wechat.jpg) | ![支付宝](qrcode-alipay.jpg) |
+| 加我微信 | 微信付款 | 支付宝付款 |
+|:---:|:---:|:---:|
+| ![微信](qrcode-wechat.jpg) | ![微信支付](qrcode-wechat-pay.jpg) | ![支付宝](qrcode-alipay.jpg) |
 
 ## License
 
