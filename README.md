@@ -47,7 +47,7 @@ skill/
 
 ### 如果你已经有 AI 编程工具
 
-打开你的工具（Claude Code、Cursor、Continue 等），在终端或聊天框运行：
+打开你的工具（Claude Code、Cursor 等），在终端或聊天框运行：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/shuiqiu94-creator/local-knowledge-search/main/install.sh | bash
